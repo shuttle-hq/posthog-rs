@@ -5,6 +5,7 @@ use serde::{de::DeserializeOwned, Serialize};
 use crate::client_options::ClientOptions;
 use crate::error::Error;
 
+#[derive(Debug)]
 pub struct Client {
     options: ClientOptions,
     http_client: HttpClient,
