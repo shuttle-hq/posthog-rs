@@ -2,6 +2,7 @@ use std::time::Duration;
 
 use crate::client::Client;
 
+#[derive(Clone)]
 pub struct ClientOptions {
     pub(crate) api_endpoint: String,
     pub(crate) api_key: String,
