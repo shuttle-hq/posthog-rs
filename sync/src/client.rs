@@ -36,11 +36,11 @@ impl Client {
             )
             .json(body)
             .send()
-            .map_err(|source| Error::SendRequest { source })?
+            .map_err(Error::SendRequest)?
             .error_for_status()
-            .map_err(|source| Error::ResponseStatus { source })?
+            .map_err(Error::ResponseStatus)?
             .json::<Res>()
-            .map_err(|source| Error::DecodeResponse { source })?;
+            .map_err(Error::DecodeResponse)?;
         Ok(res)
     }
 

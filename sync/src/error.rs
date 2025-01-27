@@ -1,11 +1,11 @@
 #[derive(Debug, thiserror::Error)]
 pub enum Error {
-    #[error("{source}")]
-    PostHogCore { source: posthog_core::error::Error },
-    #[error("send request: {source}")]
-    SendRequest { source: reqwest::Error },
-    #[error("response status: {source}")]
-    ResponseStatus { source: reqwest::Error },
-    #[error("decode response: {source}")]
-    DecodeResponse { source: reqwest::Error },
+    #[error("{0}")]
+    PostHogCore(posthog_core::error::Error),
+    #[error("send request: {0}")]
+    SendRequest(reqwest::Error),
+    #[error("response status: {0}")]
+    ResponseStatus(reqwest::Error),
+    #[error("decode response: {0}")]
+    DecodeResponse(reqwest::Error),
 }

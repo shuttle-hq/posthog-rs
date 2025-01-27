@@ -1,8 +1,5 @@
 #[derive(Debug, thiserror::Error)]
 pub enum Error {
-    #[error("serialization: {source}")]
-    Serialization {
-        #[from]
-        source: serde_json::Error,
-    },
+    #[error("serialization: {0}")]
+    Serialization(serde_json::Error),
 }

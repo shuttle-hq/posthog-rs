@@ -67,8 +67,7 @@ impl Event {
         key: K,
         prop: P,
     ) -> Result<(), Error> {
-        let as_json =
-            serde_json::to_value(prop).map_err(|source| Error::Serialization { source })?;
+        let as_json = serde_json::to_value(prop).map_err(Error::Serialization)?;
         let _ = self.properties.props.insert(key.into(), as_json);
         Ok(())
     }
